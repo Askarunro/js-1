@@ -83,24 +83,67 @@
 // console.log(Math.random()); // случайное число между 0 и 1
 // console.log(Math.random() * (10 - 1) + 1); // псевдослучайное число от 1 до 10
 
-let base = prompt('число');
-base = Number(base);
+// let base = prompt('число');
+// base = Number(base);
 
-console.log(base);
+// console.log(base);
 
-let power = prompt('степінь');
-power = Number(power);
+// let power = prompt('степінь');
+// power = Number(power);
 
-console.log(power);
+// console.log(power);
 
-const result = base ** power;
+// const result = base ** power;
+// console.log(result);
+
+// // console.log(Math.pow(base , power));
+
+// const name = 'fdgfsd' + 'fdsfsd' + 'fdsfsdfs' + 'power';
+
+// function sayHi() {
+//     console.log('Hello, this is my first function!');
+// }
+// sayHi();
+
+// const string = 'qwerttyuiioio';
+// const length = 5;
+
+// console.log(string.slice(0, length));
+
+const message = 'qwerttuyuiiuyti gtrhtrhtrh';
+const maxLength = 5;
+let result;
+// Change code below this line
+if (message.length <= maxLength) {
+    result = message;
+} else {
+    result = `${message.slice(0, maxLength)}...`;
+}
+/// Change code above this line
 console.log(result);
 
-// console.log(Math.pow(base , power));
+// 33
+// function formatMessage(message, maxLength) {
+//     let result;
+//     // Change code below this line
+//     if (message.length <= maxLength) {
+//         result = message;
+//     } else {
+//         result = `${message.slice(0, maxLength)}...`;
+//     }
+//     /// Change code above this line
+//     return result;
+// }
 
-const name = 'fdgfsd' + 'fdsfsd' + 'fdsfsdfs' + 'power';
+// 34
 
-function sayHi() {
-    console.log('Hello, this is my first function!');
-}
-sayHi();
+// const message = 'ldshfdshfls span fldskjfldsj';
+// let result;
+// // Change code below this line
+// if (message.includes('spam') || message.includes('sale')) {
+//     result = true;
+// } else {
+//     result = false;
+// }
+// // Change code above this line
+// console.log(result);
