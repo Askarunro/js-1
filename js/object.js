@@ -165,3 +165,199 @@ function calculateTotalPrice5(productName5) {
 calculateTotalPrice5('Blaster');
 calculateTotalPrice5('Radar');
 calculateTotalPrice5('Droid');
+
+// R E S T      S P R E A D
+{
+    const highTemperatures = {
+        yesterday: 28,
+        today: 26,
+        tomorrow: 33,
+    };
+
+    const {
+        yesterday: highYesterday,
+        today: highToday,
+        tomorrow = 25,
+        tomorrow: highTomorrow,
+        icon: highIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+    } = highTemperatures;
+
+    const meanTemperature = (highYesterday + highToday + highTomorrow) / 3;
+    console.log(`Середня температура:`, meanTemperature);
+    // console.log(highIcon);
+    // console.log(highTemperatures);
+}
+//
+const forecast = {
+    today: {
+        low: 28,
+        high: 32,
+        icon: 'https://www.flaticon.com/svg/static/icons/svg/861/861059.svg',
+    },
+    tomorrow: {
+        low: 27,
+        high: 31,
+    },
+};
+// Change code below this line
+
+const {
+    today: {
+        high: highToday,
+        low: lowToday,
+        icon: todayIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+    },
+    tomorrow: {
+        high: highTomorrow,
+        low: lowTomorrow,
+        icon: tomorrowIcon = 'https://www.flaticon.com/svg/static/icons/svg/2204/2204346.svg',
+    },
+} = forecast;
+
+// Change code below this line
+function add(...args) {
+    // Change code above this line
+    let argsSum = 0;
+    for (let arg of args) {
+        argsSum += arg;
+    }
+    console.log(`argsSum:`, argsSum);
+    return argsSum;
+}
+add(15, 27);
+add(12, 15, 12);
+
+function addOverNum(firstElement, ...args) {
+    let total = 0;
+    const a = firstElement;
+    for (const arg of args) {
+        if (arg > a) {
+            total += arg;
+        }
+    }
+
+    console.log(`total:`, total);
+    return total;
+    // Change code above this line
+}
+addOverNum(100, 12, 4, 11, 48, 10, 8);
+addOverNum(1, 2, 4, 21, 48, 7, 8);
+
+// Change code below this line
+function findMatches(firstEltments, ...arg) {
+    const matches = []; // Don't change this line
+    for (let element of arg) {
+        if (firstEltments.includes(element)) {
+            matches.push(element);
+        }
+    }
+    // Change code above this line
+    console.log(`перевірка на наявність аргумента в масиві:`, matches);
+    return matches;
+}
+findMatches([1, 2, 3, 4, 5], 1, 8, 2, 7);
+findMatches([4, 89, 17, 36, 2], 8, 17, 89, 27, 2);
+
+const bookShelf = {
+    // Change code below this line
+    books: ['The last kingdom', 'The guardian of dreams'],
+    getBooks() {
+        return 'Returning all books';
+    },
+    addBook(bookName) {
+        return `Adding book ${bookName}`;
+    },
+    removeBook(bookName) {
+        console.log(`Deleting book ${bookName}`);
+        return `Deleting book ${bookName}`;
+    },
+    updateBook(oldName, newName) {
+        console.log(`Updating book ${oldName} to ${newName}`);
+        return `Updating book ${oldName} to ${newName}`;
+    },
+    // Change code above this line
+};
+bookShelf.updateBook('Sands of dune', 'Dune');
+bookShelf.removeBook('Red sunset');
+
+//35
+
+const bookShelfNew = {
+    books: ['The last kingdom', 'Haze', 'The guardian of dreams', 'fasfasfasddfasd'],
+    updateBookNew(oldName, newName) {
+        // console.log(books.indexOf(oldName));
+
+        // const a = this.books.indexOf(oldName);
+        // console.log(`indexOf:`, a);
+        this.books.splice(this.books.indexOf(oldName), 1, newName);
+
+        console.log(this.books);
+        // console.log(bookShelfNew.books);
+    },
+};
+console.log(bookShelfNew.books);
+bookShelfNew.updateBookNew('The last kingdom', 'Dune');
+bookShelfNew.updateBookNew('Haze', 'Dungeon chronicles');
+
+// ЗАДАЧА: РАСШИРЯЕМ ИНВЕНТАРЬ
+const atTheOldToad = {
+    potions: [
+        { name: 'Speed potion', price: 460 },
+        { name: 'Dragon breath', price: 780 },
+        { name: 'Stone skin', price: 520 },
+    ],
+    // Change code below this line
+    getPotions() {
+        const {} = this.potions;
+        return this.potions;
+    },
+    addPotion(newPotion) {
+        for (let potionToad of this.potions) {
+            const values = Object.values(potionToad);
+            // console.log(values);
+            if (values.includes(newPotion.name)) {
+                // console.log(newPotion);
+                console.log(`Error! Potion ${newPotion.name} is already in your inventory!`);
+                return `Error! Potion ${newPotion.name} is already in your inventory!`;
+            }
+        }
+
+        this.potions.push(newPotion);
+    },
+    removePotion(potionName) {
+        for (let potionToad of this.potions) {
+            if (potionToad.name === potionName) {
+                const potionIndex = this.potions.indexOf(potionToad);
+                return this.potions.splice(potionIndex, 1);
+            }
+        }
+        console.log(`Potion ${potionName} is not in inventory!`);
+        return `Potion ${potionName} is not in inventory!`;
+    },
+    updatePotionName(oldName, newName) {
+        for (let potionToad of this.potions) {
+            if (potionToad.name === oldName) {
+                potionToad.name = newName;
+            }
+        }
+        return `Potion ${oldName} is not in inventory!`;
+    },
+    // Change code above this line
+};
+// console.log(atTheOldToad.potions);
+// atTheOldToad.getPotions();
+// console.log(atTheOldToad.potions);
+
+// atTheOldToad.addPotion({ name: 'Stone skin', price: 240 });
+// console.log(atTheOldToad.potions);
+// atTheOldToad.addPotion({ name: 'Stone skingdsgsd', price: 240 });
+// console.log(atTheOldToad.potions);
+
+// atTheOldToad.removePotion('Stone skin');
+// console.log(atTheOldToad.potions);
+// atTheOldToad.removePotion('Dragon breath');
+// console.log(atTheOldToad.potions);
+
+// atTheOldToad.updatePotionName('Stone skin', 'Invulnerability potion');
+// console.log(atTheOldToad.potions);
+// atTheOldToad.updatePotionName('Dragon breath', 'Polymorth');
