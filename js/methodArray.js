@@ -823,3 +823,16 @@ getTotalBalanceByGender(
     ],
     'female',
 );
+
+const fA = (a1, a2) => {
+    const c = [];
+    for (let number of a1) {
+        if (a2.includes(number) == false) {
+            c.push(number);
+        }
+    }
+    console.log(c.concat(a2));
+};
+// const fA = (a1, a2) =>
+//     console.log([...a1, ...a2].filter((number, index, array) => array.indexOf(number) === index));
+fA([1, 2, 3, 4], [2, 3, 5, 6]);
